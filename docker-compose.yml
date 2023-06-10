@@ -1,0 +1,23 @@
+version: "3"
+services:
+    linux:
+        build: 
+            context: .
+            dockerfile: Dockerfile
+        # user: "${UID}:${GID}"
+        image: linux:1.0
+        container_name: linux
+        working_dir: /home/leo
+        restart: unless-stopped
+        # command: bash -c "sleep infinity"
+        volumes:
+            - ./workspace:/home/leo/workspace
+        privileged: false
+        cap_add:
+            - NET_ADMIN
+        ports:
+            - "22222:22"
+        environment:
+            - EDITOR=vim
+        
+
