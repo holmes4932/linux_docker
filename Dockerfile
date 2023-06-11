@@ -13,6 +13,7 @@ RUN apt-get install -y qemu-system-x86 autoconf automake libtool
 # RUN apt-get install -y qemu-user-static gcc-mips64-linux-gnuabi64
 # RUN apt-get install -y musl
 # RUN ln -s /lib/x86_64-linux-musl/libc.so /usr/lib/libc.musl-x86_64.so.1
+RUN pip3 install --upgrade pwntools
 
 # /var/run/sshd: required on ubuntu
 RUN mkdir /var/run/sshd
