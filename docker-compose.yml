@@ -8,6 +8,7 @@ services:
         image: linux:1.0
         container_name: linux
         working_dir: /home/leo
+        hostname: linux-environment
         restart: unless-stopped
         # command: bash -c "sleep infinity"
         volumes:
