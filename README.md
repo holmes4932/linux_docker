@@ -22,3 +22,9 @@ docker-compose up -d
 docker exec -it linux bash
 ```
 
+5. set new password
+```
+su $username
+passwd
+```
+
