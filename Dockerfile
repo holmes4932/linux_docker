@@ -34,7 +34,7 @@ RUN echo '%sudo ALL=(ALL) ALL' >> /etc/sudoers
 # gen ssh-keys, allow empty password
 # RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
 # RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
-RUN echo 'PermitEmptyPasswords yes' >> /etc/ssh/sshd_config
+# RUN echo 'PermitEmptyPasswords yes' >> /etc/ssh/sshd_config
 RUN sed -i 's/nullok_secure/nullok/' /etc/pam.d/common-auth
 
 
