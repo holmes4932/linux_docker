@@ -1,5 +1,7 @@
 FROM ubuntu:22.04
 
+ARG LINUX_USER
+
 # install packages
 RUN apt-get update
 RUN yes | unminimize
@@ -27,8 +29,8 @@ RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
 RUN /usr/sbin/locale-gen
 
 # add user/group, empty password, allow sudo
-RUN groupadd -g 1000 leo
-RUN useradd --uid 1000 --gid 1000 --groups root,sudo,adm,users --create-home --password '' --shell /bin/bash leo
+RUN groupadd -g 1000 ${LINUX_USER}
+RUN useradd --uid 1000 --gid 1000 --groups root,sudo,adm,users --create-home --password '' --shell /bin/bash ${LINUX_USER}
 RUN echo '%sudo ALL=(ALL) ALL' >> /etc/sudoers
 
 # gen ssh-keys, allow empty password
