@@ -3,7 +3,7 @@ services:
   linux:
     build: 
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ./linux/Dockerfile
       args:
         - LINUX_USER=${LINUX_USER}
     # user: "${UID}:${GID}"
