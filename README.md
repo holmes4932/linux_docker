@@ -7,9 +7,13 @@
 ## Usage
 
 1. clone repository
-2. change username
+2. copy env file and set information
 
-> Username is setted to "leo" and don't have .env file at this stage. You can change all username to your username.
+```
+cp .env.example .env
+```
+> HOME : home directory of computer
+> LINUX_USER : your username in this environment
 
 
 3. launch docker
