@@ -13,6 +13,7 @@
 cp .env.example .env
 ```
 > HOME : home directory of computer
+
 > LINUX_USER : your username in this environment
 
 
