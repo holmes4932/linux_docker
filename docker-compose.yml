@@ -16,11 +16,12 @@ services:
       - EDITOR=vim
     # command: bash -c "sleep infinity"
     volumes:
-      - ./workspace:/home/${LINUX_USER}/workspace
+      - ${WORKSPACE}:/home/${LINUX_USER}/workspace
       - ${HOME}/.ssh:/home/${LINUX_USER}/.ssh
     privileged: false
     cap_add:
       - NET_ADMIN
     ports:
       - "22222:22"
+      - "8888:8888"
 

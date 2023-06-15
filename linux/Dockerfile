@@ -12,10 +12,14 @@ RUN apt-get install -y gcc-multilib g++-multilib
 RUN apt-get install -y libc6-dbg dpkg-dev
 RUN apt-get install -y curl git zsh
 RUN apt-get install -y qemu-system-x86 autoconf automake libtool
+RUN apt-get install -y byobu
 # RUN apt-get install -y qemu-user-static gcc-mips64-linux-gnuabi64
 # RUN apt-get install -y musl
 # RUN ln -s /lib/x86_64-linux-musl/libc.so /usr/lib/libc.musl-x86_64.so.1
+
+# install python packages
 RUN pip3 install --upgrade pwntools
+RUN pip3 install notebook
 
 # /var/run/sshd: required on ubuntu
 RUN mkdir /var/run/sshd
@@ -43,6 +47,7 @@ RUN echo 'StrictModes no' >> /etc/ssh/sshd_config
 
 # shell color
 RUN echo 'export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "' >> /root/.bashrc
+RUN echo 'export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "' >> /home/${LINUX_USER}/.bashrc
 
 # run the service
 EXPOSE 22
