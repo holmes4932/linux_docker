@@ -24,4 +24,25 @@ services:
     ports:
       - "22222:22"
       - "8888:8888"
+  
+  ml:
+    image: machine_learning:1.0
+    build: 
+      context: .
+      dockerfile: ./ml/Dockerfile
+      args:
+        - ML_USER=${ML_USER}
+    container_name: ml
+    working_dir: /home/${ML_USER}
+    hostname: ml-environment
+    restart: unless-stopped
+    command: bash -c "sleep infinity"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
 
