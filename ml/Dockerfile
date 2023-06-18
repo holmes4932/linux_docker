@@ -19,6 +19,14 @@ RUN apt-get install -y byobu
 RUN pip3 install --upgrade pwntools
 RUN pip3 install notebook
 
+# Install miniconda
+ENV CONDA_DIR /opt/conda
+RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
+    /bin/bash ~/miniconda.sh -b -p /opt/conda
+
+# Put conda in path so we can use conda activate
+ENV PATH=$CONDA_DIR/bin:$PATH
+
 # /var/run/sshd: required on ubuntu
 RUN mkdir /var/run/sshd
 
