@@ -1,12 +1,13 @@
 FROM nvidia/cuda:11.6.1-cudnn8-devel-ubuntu20.04
 
 ARG ML_USER
+ARG DEBIAN_FRONTEND=noninteractive
 
 # install packages
 RUN apt-get update
 RUN yes | unminimize
 RUN apt-get install -y tini iproute2 iputils-ping net-tools netcat
-RUN apt-get install -y openssh-server sudo vim grep gawk rsync tmux man manpages manpages-dev manpages-posix manpages-posix-dev diffutils file
+RUN apt-get install -y openssh-server sudo vim grep
 RUN apt-get install -y make python3 python3-pip python3-virtualenv
 RUN apt-get install -y curl git zsh
 RUN apt-get install -y byobu

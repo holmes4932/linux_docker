@@ -23,7 +23,6 @@ services:
       - NET_ADMIN
     ports:
       - "22222:22"
-      - "8888:8888"
   
   ml:
     image: machine_learning:1.0
@@ -36,7 +35,9 @@ services:
     working_dir: /home/${ML_USER}
     hostname: ml-environment
     restart: unless-stopped
-    command: bash -c "sleep infinity"
+    # command: bash -c "sleep infinity"
+    volumes:
+      - ${WORKSPACE}:/home/${ML_USER}/workspace
     deploy:
       resources:
         reservations:
@@ -44,5 +45,7 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [gpu]
+    ports:
+      - "8888:8888"
 
 
