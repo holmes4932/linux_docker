@@ -38,6 +38,7 @@ services:
     # command: bash -c "sleep infinity"
     volumes:
       - ${WORKSPACE}:/home/${ML_USER}/workspace
+      - ./ml/conda_envs:/opt/conda/envs
     deploy:
       resources:
         reservations:
