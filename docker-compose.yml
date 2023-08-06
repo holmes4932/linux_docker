@@ -7,7 +7,7 @@ services:
       args:
         - LINUX_USER=${LINUX_USER}
     # user: "${UID}:${GID}"
-    image: linux:1.0
+    image: ${DOCKER_USER}/linux:1.0
     container_name: linux
     working_dir: /home/${LINUX_USER}
     hostname: linux-environment
@@ -25,7 +25,7 @@ services:
       - "22222:22"
   
   ml:
-    image: machine_learning:1.0
+    image: ${DOCKER_USER}/machine_learning:1.0
     build: 
       context: .
       dockerfile: ./ml/Dockerfile
