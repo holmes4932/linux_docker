@@ -39,6 +39,7 @@ services:
     volumes:
       - ${WORKSPACE}:/home/${ML_USER}/workspace
       - ./ml/conda_envs:/opt/conda/envs
+      - ./ml/.jupyter:/root/.jupyter
     deploy:
       resources:
         reservations:

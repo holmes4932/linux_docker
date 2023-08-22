@@ -1,3 +1,4 @@
 workspace/*
 ml/conda_envs/*
+ml/.jupyter/*
 .env
