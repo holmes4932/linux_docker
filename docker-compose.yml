@@ -25,7 +25,7 @@ services:
       - "22222:22"
   
   ml:
-    image: ${DOCKER_USER}/machine_learning:1.0
+    image: ${DOCKER_USER}/machine_learning:1.1
     build: 
       context: .
       dockerfile: ./ml/Dockerfile
